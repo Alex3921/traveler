@@ -1,6 +1,6 @@
 require_relative './concerns/slugifiable.rb'
 
-class Post < ActiveRecord::Base
+class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :attraction
 end

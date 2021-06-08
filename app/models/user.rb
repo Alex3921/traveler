@@ -1,6 +1,6 @@
 require_relative './concerns/slugifiable.rb'
 
 class User < ActiveRecord::Base
-  has_many :posts
-  has_many :attractions, through: :posts
+  has_many :reviews
+  has_many :attractions, through: :reviews
 end

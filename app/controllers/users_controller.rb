@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @current_user = User.create(params)
 
     if !@current_user.valid?
-      flash[:message] = "Username and/or email already in use. Try again!"
+      flash[:notice] = "Username and/or email already in use. Try again!"
       redirect to '/signup'
     else
       session[:user_id] = @current_user.id
@@ -32,10 +32,10 @@ class UsersController < ApplicationController
     @current_user = User.find_by(username: params[:username], email: params[:email])
     if @current_user && @current_user.authenticate(params[:password])
       session[:user_id] = @current_user.id
-      flash[:message] = "Successfully logged in!"
+      flash[:notice] = "Successfully logged in!"
       redirect "/accounts/#{@current_user.slug}"
     else
-      flash[:message] = "Whoopsie! Username & password don't match. Please try again!"
+      flash[:notice] = "Whoopsie! Username & password don't match. Please try again!"
       erb :'users/login'
     end
   end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.destroy
-      flash[:message] = "Successfully logged out!"
+      flash[:notice] = "Successfully logged out!"
       redirect to '/'
     else
       redirect to '/'

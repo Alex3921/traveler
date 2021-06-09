@@ -1,7 +1,7 @@
 <h3>
   <font color="#33ccff">
-    <% if flash.has?(:message) %>
-      <a href="/signup"><%= flash[:message] %></a>
+    <% if flash.has?(:notice) %>
+      <%= flash[:notice] %>
     <% end %>
   </font>
 </h3>

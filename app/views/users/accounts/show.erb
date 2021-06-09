@@ -13,3 +13,11 @@
 
 <label>E-mail:</label>
 <%= @current_user.email %>
+
+<br><br>
+
+<a href="/accounts/<%=@current_user.slug%>/edit"><input type="submit" value="Edit"/></a>
+<form onsubmit="return confirm('Are you sure you want to delete your account?')" action="/accounts/<%=@current_user.slug%>" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete"/>
+</form>

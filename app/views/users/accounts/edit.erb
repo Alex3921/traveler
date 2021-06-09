@@ -1,0 +1,18 @@
+Here you can edit your profile:
+
+<br><br>
+
+<form action="/accounts/<%=@current_user.slug%>" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+  <label>Username:</label>
+  <input type="text" name="user[username]" placeholder="<%=@current_user.username%>">
+  <label>E-mail:</label>
+  <input type="text" name="user[email]" placeholder="<%=@current_user.email%>">
+  <label>New Password:</label>
+  <input type="password" name="user[password]">
+  
+  <br><br>
+
+  <input type="submit" value="Submit changes">
+</form>
+

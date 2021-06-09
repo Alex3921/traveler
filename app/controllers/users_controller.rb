@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @current_user = User.create(params)
+    @current_user = User.create(params[:user])
 
     if !@current_user.valid?
       flash[:notice] = "Username and/or email already in use. Try again!"
@@ -29,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @current_user = User.find_by(username: params[:username], email: params[:email])
-    if @current_user && @current_user.authenticate(params[:password])
+    @current_user = User.find_by(username: params[:user][:username], email: params[:user][:email])
+    if @current_user && @current_user.authenticate(params[:user][:password])
       session[:user_id] = @current_user.id
       flash[:notice] = "Successfully logged in!"
       redirect "/accounts/#{@current_user.slug}"
@@ -84,7 +84,7 @@ class UsersController < ApplicationController
     if logged_in?
       @current_user = User.find_by(id: session[:user_id])
       if @current_user.slug == params[:slug]
-        @current_user.update(params)
+        @current_user.update(params[:user])
       else
         flash[:notice] = "You don't have permission to edit this profile!"
         erb :"accounts/#{@current_user.slug}"

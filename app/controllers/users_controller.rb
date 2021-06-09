@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    binding.pry
     @current_user = User.create(params)
 
     if !@current_user.valid?

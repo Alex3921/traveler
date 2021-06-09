@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'/users/signup'
     else
-      redirect to "accounts/#{current_user.slug}"
+      redirect to "/accounts/#{current_user.slug}"
     end
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       redirect to '/signup'
     else
       session[:user_id] = @current_user.id
-      redirect to "accounts/#{@current_user.slug}"
+      redirect to "/accounts/#{@current_user.slug}"
     end
   end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/login'
     else
-      redirect to "accounts/#{@current_user.slug}"
+      redirect to "/accounts/#{@current_user.slug}"
     end
   end
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if @current_user && @current_user.authenticate(params[:password])
       session[:user_id] = @current_user.id
       flash[:message] = "Successfully logged in!"
-      redirect "accounts/#{@current_user.slug}"
+      redirect "/accounts/#{@current_user.slug}"
     else
       flash[:message] = "Whoopsie! Username & password don't match. Please try again!"
       erb :'users/login'
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     end
   end
   
-  get 'accounts/:slug' do
+  get '/accounts/:slug' do
     @current_user = User.find_by(id: session[:user_id])
 
     if logged_in? && @current_user.slug == params[:slug]
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get 'accounts/:slug/edit' do
+  get '/accounts/:slug/edit' do
     @current_user = User.find_by(id: session[:user_id])
 
     if logged_in? && @current_user.slug == params[:slug]
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     end
   end
 
-  patch 'accounts/:slug' do
+  patch '/accounts/:slug' do
     if logged_in?
       @current_user = User.find_by(id: session[:user_id])
       if @current_user.slug == params[:slug]
@@ -86,7 +86,7 @@ class UsersController < ApplicationController
     end
   end
 
-  delete 'accounts/:slug' do
+  delete '/accounts/:slug' do
     if logged_in?
       @current_user = User.find_by(id: session[:user_id])
       if @current_user.slug == params[:slug]

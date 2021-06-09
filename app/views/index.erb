@@ -1,3 +1,11 @@
+<h3>
+  <font color="#33ccff">
+    <% if flash.has?(:notice) %>
+      <%= flash[:notice] %>
+    <% end %>
+  </font>
+</h3>
+
 Please choose an action:
 <br>
 <a href="/login"><input type="submit" value="Log in"/></a>

@@ -85,6 +85,7 @@ class UsersController < ApplicationController
       @current_user = User.find_by(id: session[:user_id])
       if @current_user.slug == params[:slug]
         @current_user.update(params[:user])
+        redirect to "/accounts/#{@current_user.slug}"
       else
         flash[:notice] = "You don't have permission to edit this profile!"
         erb :"accounts/#{@current_user.slug}"

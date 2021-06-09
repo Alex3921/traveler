@@ -52,9 +52,13 @@ class UsersController < ApplicationController
   
   get '/accounts/:slug' do
     @current_user = User.find_by(id: session[:user_id])
-
-    if logged_in? && @current_user.slug == params[:slug]
-      erb :'users/accounts/show'
+    if logged_in?
+      if @current_user.slug == params[:slug]
+        erb :'users/accounts/show'
+      else
+        flash[:notice] = "You're being naughty!!!"
+        redirect to "/accounts/#{@current_user.slug}"
+      end
     else
       flash[:notice] = "You need to log in first!"
       redirect to '/login'
@@ -63,12 +67,16 @@ class UsersController < ApplicationController
 
   get '/accounts/:slug/edit' do
     @current_user = User.find_by(id: session[:user_id])
-
-    if logged_in? && @current_user.slug == params[:slug]
-      erb :'users/accounts/edit'
+    if logged_in?
+      if @current_user.slug == params[:slug]
+        erb :'users/accounts/edit'
+      else
+        flash[:notice] = "You're being naughty!!!"
+        redirect to "/accounts/#{@current_user.slug}"
+      end
     else
-      flash[:notice] = "You're being naughty!!!"
-      redirect to '/'
+      flash[:notice] = "You need to log in first!"
+      redirect to '/login'
     end
   end
 

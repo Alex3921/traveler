@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       redirect "/accounts/#{@current_user.slug}"
     else
       flash[:notice] = "Whoopsie! Username & password don't match. Please try again!"
-      erb :'users/login'
+      redirect to '/login'
     end
   end
 

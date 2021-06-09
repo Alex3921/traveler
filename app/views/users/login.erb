@@ -2,6 +2,14 @@ Please fill the form to log in:
 
 <br><br>
 
+<h3>
+  <font color="#33ccff">
+    <% if flash.has?(:notice) %>
+      <%= flash[:notice] %>
+    <% end %>
+  </font>
+</h3>
+
 <form action="/login" method="POST">
   <label for="username">Username:</label>
   <input type="text" name="username" required>

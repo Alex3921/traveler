@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     end
   end
 
-  patch '/accounts/:slug' doxz
+  patch '/accounts/:slug' do
     if logged_in?
       @current_user = User.find_by(id: session[:user_id])
       if @current_user.slug == params[:slug]

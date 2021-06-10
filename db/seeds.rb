@@ -44,121 +44,121 @@ Location.create(
 Review.create(
   content: "One of many must  visit sites  in Chicago.  A large variety of restaurants to choose from, plenty of shopping, a fun and friendly atmosphere.",
   rating: 3,
-  attraction_id: 7,
+  attraction_id: 1,
   user_id: 12
 )
 Review.create(
   content: "Can take a while to get in on a busy day, so plan accordingly.",
   rating: 2,
-  attraction_id: 7,
+  attraction_id: 1,
   user_id: 13
 )
 Review.create(
   content: "Lovely museum with an extensive collection of modern and contemporary art",
   rating: 5,
-  attraction_id: 6,
+  attraction_id: 2,
   user_id: 10
 )
 Review.create(
   content: "This is where you go to see all the art you learned about in school.",
   rating: 4,
-  attraction_id: 6,
+  attraction_id: 2,
   user_id: 11
 )
 Review.create(
   content: "Great place to watch a baseball game Home of the Boston Red Sox World Series Champions",
   rating: 5,
-  attraction_id: 8,
+  attraction_id: 3,
   user_id: 14
 )
 Review.create(
   content: "Excellent concert venue as well as baseball!",
   rating: 3,
-  attraction_id: 8,
+  attraction_id: 3,
   user_id: 15
 )
 Review.create(
   content: "This time I caught part of the guided tour which I highly recommend.",
   rating: 4,
-  attraction_id: 9,
+  attraction_id: 4,
   user_id: 16
 )
 Review.create(
   content: "Permanent exhibit is thoughtful and inspiring and the JFK100 exhibit is very well done.",
   rating: 1,
-  attraction_id: 9,
+  attraction_id: 4,
   user_id: 17
 )
 Review.create(
   content: "The park offers many different hiking trails ranging from easy to difficult.",
   rating: 5,
-  attraction_id: 10,
+  attraction_id: 5,
   user_id: 10
 )
 Review.create(
   content: "Make sure to stop at the visitor center first.",
   rating: 5,
-  attraction_id: 10,
+  attraction_id: 5,
   user_id: 11
 )
 Review.create(
   content: "They have multiple stages with live music and sometimes DJs playing dance music.",
   rating: 1,
-  attraction_id: 11,
+  attraction_id: 6,
   user_id: 12
 )
 Review.create(
   content: "Inside the casinos there is table games as well as slot machines.",
   rating: 2,
-  attraction_id: 11,
+  attraction_id: 6,
   user_id: 13
 )
 Review.create(
   content: "Central Park in New York City is one of many iconic landmark parks in town.",
   rating: 4,
-  attraction_id: 12,
+  attraction_id: 7,
   user_id: 14
 )
 Review.create(
   content: "It has an amusement park rides for kids, zoo and more which I didn't get a chance to discover",
   rating: 5,
-  attraction_id: 12,
+  attraction_id: 7,
   user_id: 15
 )
 Review.create(
   content: "You can take a cruise boat ride on the island of liberty.",
   rating: 3,
-  attraction_id: 13,
+  attraction_id: 8,
   user_id: 16
 )
 Review.create(
   content: "I didn't realize there was a free self-guided audio tour included.",
   rating: 5,
-  attraction_id: 13,
+  attraction_id: 8,
   user_id: 17
 )
 Review.create(
   content: "After visiting Lombard we went to Golden Gate and the port, good luck visiting San Francisco!",
   rating: 5,
-  attraction_id: 14,
+  attraction_id: 9,
   user_id: 10
 )
 Review.create(
   content: "Consider to go at the spings so you can see the flower",
   rating: 2,
-  attraction_id: 14,
+  attraction_id: 9,
   user_id: 11
 )
 Review.create(
   content: "How could someone miss Golden Gate bridge while visiting San Francisco or bay area.",
   rating: 1,
-  attraction_id: 15,
+  attraction_id: 10,
   user_id: 12
 )
 Review.create(
   content: "Take a walk or a bike ride along the bridge.",
   rating: 5,
-  attraction_id: 15,
+  attraction_id: 10,
   user_id: 13
 )
 

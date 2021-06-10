@@ -5,3 +5,11 @@
     <% end %>
   </font>
 </h3>
+
+Checkout our amazing attractions:
+
+<ul>
+  <%@attractions.each do |attraction|%>
+    <a href="/attractions/<%attraction.slug%>"><%=attraction.name%></a>
+  <%end%>
+</ul>

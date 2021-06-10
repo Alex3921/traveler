@@ -8,7 +8,11 @@ module Slugifiable
 
   module InstanceMethods
     def slug
-      self.username.gsub(/[^a-zA-Z\d\s]/, "").gsub(/[\s]/, "-").downcase
+      if self.class.method_defined?(:username)
+        self.username.gsub(/[^a-zA-Z\d\s]/, "").gsub(/[\s]/, "-").downcase
+      elsif self.class.method_defined?(:name)
+        self.name.gsub(/[^a-zA-Z\d\s]/, "").gsub(/[\s]/, "-").downcase
+      end
     end
 
   end

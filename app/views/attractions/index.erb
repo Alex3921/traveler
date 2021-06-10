@@ -6,10 +6,15 @@
   </font>
 </h3>
 
-Checkout our amazing attractions:
+<h1>Checkout our amazing attractions:</h1>
+
+<br><br>
 
 <ul>
   <%@attractions.each do |attraction|%>
-    <a href="/attractions/<%attraction.slug%>"><%=attraction.name%></a>
+    <%=attraction.img_url%>
+    <h3><a href="/attractions/<%=attraction.slug%>"><%=attraction.name%></a></h3>
+    <%=attraction.description%>
+    <br><br>
   <%end%>
 </ul>

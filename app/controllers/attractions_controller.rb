@@ -6,8 +6,8 @@ class AttractionsController < ApplicationController
   end
 
   get '/attractions/new' do
-    @current_user = User.find_by(id: session[:user_id])
     if logged_in?
+      @current_user = User.find_by(id: session[:user_id])
       erb :'attractions/new'
     else
       flash[:notice] ="Forbidden! Please login first!"

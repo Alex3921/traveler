@@ -1,4 +1,4 @@
-class locationsController < ApplicationController
+class LocationsController < ApplicationController
 
   get '/locations' do
     @locations = Location.all
@@ -40,7 +40,7 @@ class locationsController < ApplicationController
   get '/locations/:slug/edit' do 
     if logged_in?
       @location = Location.find_by_slug(params[:slug])
-      if @location && @location.user == current_user
+      if @location && current_user.locations.include?(@location)
         erb :'locations/edit'
       else
         flash[:notice] = "Sorry, but you don't have permission to edit a location you didn't create."
@@ -55,10 +55,10 @@ class locationsController < ApplicationController
   patch '/locations/:slug' do
     if logged_in?
       @location = Location.find_by_slug(params[:slug])
-      if @location && @location.user == current_user
+      if @location && current_user.locations.include?(@location)
         if @location.update(params[:location]) != true
           flash[:notice] = "The name is already taken. Please choose another one."
-          redirect to '/locations/new'
+          redirect to "/locations/#{@location.slug}/edit"
         end
       else
         flash[:notice] = "Sorry, but you don't have permission to edit a location you didn't create."

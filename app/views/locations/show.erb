@@ -1,0 +1,29 @@
+<h3>
+  <p color="#33ccff">
+    <% if flash.has?(:notice) %>
+      <%= flash[:notice] %>
+    <% end %>
+  </p>
+</h3>
+
+<h3><%=@location.name%></h3>
+<br><br>
+
+<%=@location.description%>
+<br><br>
+
+<%if logged_in? && @current_user.locations.include?(@location)%>
+  <a href="/locations/<%=@location.slug%>/edit"><input type="submit" value="Edit Location"/></a>
+<%end%>
+<br><br>
+
+<ol>
+  <%@location.attractions.each do |attraction|%>
+    <%if !attraction.name.nil?%>
+      <h4><li><a href="/attractions/<%=attraction.slug%>"><%=attraction.name%></a></li></h4>
+      <%=attraction.description%>
+    <%end%>
+    <br><br>
+  <%end%>
+</ol>
+

@@ -1,0 +1,24 @@
+<h3>
+  <p color="#33ccff">
+    <% if flash.has?(:notice) %>
+      <%= flash[:notice] %>
+    <% end %>
+  </p>
+</h3>
+
+<h3><%=current_user.username%>, here you can edit your listing:</h3>
+<br><br>
+
+<form action="/locations/<%=@location.slug%>" method="POST" id="location_edit">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+  <label>Name:</label>
+  <input type="text" name="location[name]" value="<%=@location.name%>">
+  <label>Description:</label>
+  <input type="text" name="location[description]" value="<%=@location.description%>">
+  <br><br><br>
+
+</form>
+
+<input form="location_edit" type="submit" value="Submit changes">
+<a href="/locations/<%=@location.slug%>"><button type="button">Cancel</button></a>

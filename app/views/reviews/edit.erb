@@ -1,0 +1,19 @@
+<h3><%= current_user.username %>, here you can edit your review:</h3>
+<br><br>
+
+<form action="attractions/<%= @attraction.slug%>/reviews/<%= @review.id %>" method="POST" id="review_edit">
+  <input type="hidden" id="hidden" name="_method" value="PATCH">
+
+  <label><h3>Comment:</h3></label>
+    <input type="text" name="review[content]" value="<%=@review.content%>" required>
+
+  <label><h3>Rating:</h3></label> 
+    <% (1..5).each do |num| %>
+        <input type="radio" name="review[rating]" value="<%= num %>" <%= 'checked' if @review.rating == num %> required><%= num %>
+    <% end %>
+  <br><br>
+
+</form>
+
+<input form="create_review" type="submit" value="Create">
+<a href="/locations/<%= @location.slug %>"><button type="button">Cancel</button></a>>

@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   
   get 'attractions/:slug/add_review' do
     if logged_in?
+      @attraction = Attraction.find_by_slug(params[:slug])
       erb :'reviews/new'
     else
       flash[:notice] ="Forbidden! Please login first!"
@@ -12,7 +13,7 @@ class ReviewsController < ApplicationController
   post 'attractions/:slug/reviews' do
     if logged_in?
       @attraction = Attraction.find_by_slug(params[:slug])
-      @review = Review.create(params[:review])
+      @review = Review.create(content: params[:review])
       current_user.reviews << @review
       @attraction.reviews << @review
       

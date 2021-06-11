@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   
   has_many :reviews
   has_many :attractions
+  has_many :locations, through: :attractions
 
   validates :username, :email, :password, presence: true
   validates :username, :email, uniqueness: { case_sensitive: false }

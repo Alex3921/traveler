@@ -20,7 +20,7 @@ class AttractionsController < ApplicationController
       if Attraction.new(params[:attraction]).valid?                 
         current_user.attractions << Attraction.create(params[:attraction])
         flash[:notice] = "Attraction created successfully!"
-        redirect to "/attractions/#{current_user.slug}"
+        redirect to "/attractions/#{Attraction.last.slug}"
       else
         flash[:notice] = "That name is taken. Please choose another one!"
         redirect to "/attractions/new"

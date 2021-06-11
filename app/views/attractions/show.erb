@@ -6,18 +6,21 @@
   </style>
 </h3>
 
-<h3><%= @attraction.name %></h3>
+<h4><%= @attraction.name %></h4>
+  <% if !!@attraction && @attraction.user == @current_user %>
+    <a href="/attractions/<%= @attraction.slug %>/edit"><input type="submit" value="Edit Attraction"/></a>
+  <% end %>
 <br><br>
 
-<%= @attraction.descriptio n%>
-<br><br>
+<%= @attraction.description %>
+<br><br><br><br>
 
-<% if !!@attraction && @attraction.user == @current_user %>
-  <a href="/attractions/<%= @attraction.slug %>/edit"><input type="submit" value="Edit"/></a>
-<% end %>
+
+<h3>Reviews</h3>
+<br>
 
 <% @attraction.reviews.each do |review| %>
-  <%= review.user.username %>
+  <b><%= review.user.username %></b>
   <% if !!review.updated_at %>
     <%= review.updated_at.strftime("%B, %d, %Y") %>
   <% else %>
@@ -29,4 +32,5 @@
   <% if logged_in? && review.user == current_user %>
   <a href="/locations/<%=@location.slug%>/edit"><input type="submit" value="Edit Location"/></a>
   <% end %>
+  <br><br>
 <% end %>

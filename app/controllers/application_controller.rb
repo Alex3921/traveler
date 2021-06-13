@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
     use Rack::Flash
     set :public_folder, 'public'
     set :views, 'app/views'
-    set :session_secret, 'abcdefghijklmnopqrstuvwxyz'
+    set :session_secret, ENV['SESSION_SECRET']
   end
 
 
@@ -26,6 +26,12 @@ class ApplicationController < Sinatra::Base
       !!current_user
     end
 
-  end
+    def redirect_login
+      if !logged_in?
+        flash[:notice] ="Forbidden! Please login first!"
+        redirect to '/login'
+      end
+    end
 
+  end
 end

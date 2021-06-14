@@ -9,8 +9,14 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     set :session_secret, ENV['SESSION_SECRET']
+    # set :show_exceptions, false
   end
 
+
+  # not_found do
+  #   status 404
+  #   redirect to '/'
+  # end
 
   get "/" do
     erb :index
@@ -30,6 +36,14 @@ class ApplicationController < Sinatra::Base
       if !logged_in?
         flash[:notice] ="Forbidden! Please login first!"
         redirect to '/login'
+      end
+    end
+
+    def record_found?(resources)
+      res = resources.map{|obj| obj.nil?}
+      if res.any?(true)
+        flash[:notice] = "Please try again."
+        redirect to "/locations"
       end
     end
 

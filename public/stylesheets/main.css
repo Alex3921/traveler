@@ -112,5 +112,18 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  .btn {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .active, .btn:hover {
+    background-color: #666;
+    color: white;
+  }
   
 }

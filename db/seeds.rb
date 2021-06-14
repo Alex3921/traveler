@@ -15,27 +15,37 @@ User.create(username: "William", email: "william@gmail.com", password: "1234")
 Location.create(
   name: "Chicago",
   description: "Chicago, on Lake Michigan in Illinois, is among the largest cities in the U.S. Famed for its bold architecture, it has a skyline punctuated by skyscrapers such as the iconic John Hancock Center, 1,451-ft. Willis Tower (formerly the Sears Tower) and the neo-Gothic Tribune Tower. The city is also renowned for its museums, including the Art Institute of Chicago with its noted Impressionist and Post-Impressionist works.", 
-  address: "Illinois, USA"
+  address: "Illinois, USA",
+  user_id: 10,
+  img_url: ""
 )
 Location.create(
   name: "Boston",
   description: "Boston, officially the City of Boston, is the capital and most populous city of the Commonwealth of Massachusetts in the United States and 21st most populous city in the country. The city proper covers 48.4 square miles (125 km2) with an estimated population of 692,600 in 2019, also making it the most populous city in New England. It is the seat of Suffolk County (although the county government was disbanded on July 1, 1999). The city is the economic and cultural anchor of a substantially larger metropolitan area known as Greater Boston, a metropolitan statistical area (MSA) home to a census-estimated 4.8 million people in 2016 and ranking as the tenth-largest MSA in the country.", 
-  address: "Massachusetts, USA"
+  address: "Massachusetts, USA",
+  user_id: 10,
+  img_url: ""
 )
 Location.create(
   name: "Las Vegas",
   description: "Las Vegas, officially the City of Las Vegas and often known simply as Vegas, is the 28th-most populous city in the United States, the most populous city in the state of Nevada, and the county seat of Clark County. The city anchors the Las Vegas Valley metropolitan area and is the largest city within the greater Mojave Desert. Las Vegas is an internationally renowned major resort city, known primarily for its gambling, shopping, fine dining, entertainment, and nightlife. The Las Vegas Valley as a whole serves as the leading financial, commercial, and cultural center for Nevada.",
-  address: "Nevada, USA"
+  address: "Nevada, USA",
+  user_id: 11,
+  img_url: ""
 )
 Location.create(
   name: "New York",
   description: "New York City (NYC), often simply called New York, is the most populous city in the United States. With almost 20 million people in its metropolitan statistical area it is one of the world's most populous megacities. New York City has been described as the cultural, financial, and media capital of the world, significantly influencing commerce, entertainment, research, technology, education, politics, tourism, art, fashion, and sports, and is the most photographed city in the world. Home to the headquarters of the United Nations, New York is an important center for international diplomacy, and has sometimes been called the capital of the world.",
-  address: "New York, USA"
+  address: "New York, USA",
+  user_id: 12,
+  img_url: ""
 )
 Location.create(
   name: "San Francisco",
   description: "San Francisco, officially the City and County of San Francisco, is a cultural, commercial, and financial center in Northern California. San Francisco is the 16th most populous city in the United States, and the fourth most populous in California, with 881,549 residents as of 2019. It covers an area of about 46.89 square miles (121.4 square kilometers), mostly at the north end of the San Francisco Peninsula in the San Francisco Bay Area, making it the second most densely populated large U.S. city, and the fifth most densely populated U.S. county, behind only four of the five New York City boroughs.",
-  address: "California, USA"
+  address: "California, USA",
+  user_id: 13,
+  img_url: ""
 )
 
 

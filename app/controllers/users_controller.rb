@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     @current_user = User.find_by(username: params[:user][:username])
-    if !@current_user && @current_user.authenticate(params[:user][:password])
+    if !(@current_user && @current_user.authenticate(params[:user][:password]))
       flash[:notice] = "Whoopsie! Username & password don't match. Please try again!"
       redirect to '/login'
     end

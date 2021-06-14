@@ -12,9 +12,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    
   </head>
   <body>
     <div class="wrapper">
+        <div class="topnav">
+          <% if logged_in? %>
+          <a href="/logout">Sign Out</a>
+          <a href="/accounts/<%= current_user.slug %>">Home</a>
+          <% else %>
+          <a href="/">Home</a>
+          <% end %>
+          <a href="/locations">Locations</a>
+          <a href="/attractions">Attractions</a>
+          <a href="/about">About</a>
+        </div>
+        <br><br>
+    
+      <h3 style="color:#33ccff;">
+        <% if flash.has?(:notice) %>
+          <%= flash[:notice] %>
+        <% end %>
+      </h3>
 
         <%= yield %>
 

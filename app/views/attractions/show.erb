@@ -1,14 +1,10 @@
-<h3>
-  <style color="#33ccff">
-    <% if flash.has?(:notice) %>
-      <%= flash[:notice] %>
-    <% end %>
-  </style>
-</h3>
-
 <h4><%= @attraction.name %></h4>
   <% if !!@attraction && @attraction.user == @current_user %>
-    <a href="/attractions/<%= @attraction.slug %>/edit"><input type="submit" value="Edit Attraction"/></a>
+    <a href="/attractions/<%= @attraction.slug %>/edit"><input type="submit" value="Edit"/></a>
+    <form action="/attractions/<%= @attraction.slug %>" method="POST">
+      <input type="hidden" id="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete"/></a>
+    </form>
   <% end %>
 <br><br>
 
@@ -19,18 +15,23 @@
 <h3>Reviews</h3>
 <br>
 
+<% if logged_in? %>
+  <a href="/reviews/<%= @attraction.slug %>/add_review"><i>Leave review</i></a>
+  <br><br>
+<% end %>
+
 <% @attraction.reviews.each do |review| %>
   <b><%= review.user.username %></b>
-  <% if !!review.updated_at %>
-    <%= review.updated_at.strftime("%B, %d, %Y") %>
-  <% else %>
-    <%= review.created_at.strftime("%B, %d, %Y") %>
+  <%= review.created_at.strftime("%B, %d, %Y") %>
+  <% if review.user == current_user %>
+    <a href="/reviews/<%= @attraction.slug %>/<%= review.id %>/edit"><input type="submit" value="Edit"/></a>
+    <form action="/reviews/<%= @attraction.slug %>/<%= review.id %>" method="POST">
+      <input type="hidden" id="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete">
+    </form>
   <% end %>
   <br>
 
   <%= review.content %> 
-  <% if logged_in? && review.user == current_user %>
-  <a href="/locations/<%=@location.slug%>/edit"><input type="submit" value="Edit Location"/></a>
-  <% end %>
   <br><br>
 <% end %>

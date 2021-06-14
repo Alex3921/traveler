@@ -1,16 +1,16 @@
-<h2><%=current_user.username%>, add a new review:</h2>
+<h2><%= current_user.username %>, add a new review:</h2>
 <br><br>
 
-<form action="/attractions/<%=@attraction.slug%>/reviews" method="POST" id="create_review">
+<form action="/reviews/<%= @attraction.slug %>" method="POST" id="create_review">
   <label><h3>Comment:</h3></label>
   <input type="text" name="review[content]" required>
-  <%(1..5).each do |num|%>
-    <h3>Rating:</h3> 
-    <label><input type="radio" name="review[rating]" value="<%=num%>" required><%=num%></label>
-  <%end%>
+  <h3>Rating:</h3>
+  <% (1..5).each do |num| %> 
+    <label><input type="radio" name="review[rating]" value="<%= num %>" required><%=num%></label>
+  <% end %>
   <br><br>
 
 </form>
 
 <input form="create_review" type="submit" value="Create">
-<a href="/locations/<%=@location.slug%>"><button type="button">Cancel</button></a>>
+<a href="/attractions/<%= @attraction.slug %>"><button type="button">Cancel</button></a>

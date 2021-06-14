@@ -1,19 +1,9 @@
-<h3>
-  <style color="#33ccff">
-    <% if flash.has?(:notice) %>
-      <%= flash[:notice] %>
-    <% end %>
-  </style>
-</h3>
-
-<br>
-
 <label>Username:</label>
 <%= @current_user.username %>
+<br>
 
 <label>E-mail:</label>
 <%= @current_user.email %>
-
 <br><br>
 
 <a href="/accounts/<%=@current_user.slug%>/edit"><input type="submit" value="Edit"/></a>

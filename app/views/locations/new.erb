@@ -1,24 +1,14 @@
-<h3>
-  <style color="#33ccff">
-    <% if flash.has?(:notice) %>
-      <%= flash[:notice] %>
-    <% end %>
-  </style>
-</h3>
-
-<br><br>
-
 <h2><%=@current_user.username%>, here you can create a new location:</h2>
 
 <br><br>
 
 <form action="/locations" method="POST" id="create_location">
-  <h3>Name: <input type="text" name="location[name]" id="location_name"></h3>
-  <h3>Description: <input type="text" name="location[description]" id="location_description"></h3>
+  <h3>Name: <input type="text" name="location[name]" id="location_name" required></h3>
+  <h3>Description: <input type="text" name="location[description]" id="location_description" required></h3>
   <h3>Image url: <input type="text" name="location[img_url]" id="location_img_url"></h3>
   <br><br>
 
 </form>
 
 <input form="create_location" type="submit" value="Create">
-<a href="/locations"><button type="button">Cancel</button></a>
+<a href="/locations"><input type="submit" value="Cancel"></a>

@@ -52,5 +52,14 @@ class ApplicationController < Sinatra::Base
       end
     end
 
+    def has_img?(object)
+      if object.img_url.empty?
+        data = API.get_data(object.slug)["results"].sample
+        photo = Photo.new(data)
+        object.img_url = photo.full
+        object.save
+      end
+    end
+
   end
 end

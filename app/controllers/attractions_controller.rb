@@ -17,8 +17,10 @@ class AttractionsController < ApplicationController
       flash[:notice] = "That name is taken. Please choose another one!"
       redirect to "/attractions/new"
     end
-
-    current_user.attractions << Attraction.create(params[:attraction])
+    
+    @attraction = Attraction.create(params[:attraction])
+    has_img?(@attraction)
+    current_user.attractions << @attraction
     flash[:notice] = "Attraction created successfully!"
     redirect to "/attractions/#{Attraction.last.slug}"
   end

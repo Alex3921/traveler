@@ -20,7 +20,9 @@ class LocationsController < ApplicationController
       redirect to "/locations/new"
     end
     
-    current_user.locations << Location.create(params[:location])
+    @location = Location.create(params[:location])
+    has_img?(@location)
+    current_user.locations << @location
     flash[:notice] = "Location created successfully!"
     redirect to "/locations/#{Location.last.slug}"
   end

@@ -22,6 +22,11 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get "/visitor" do
+    @locations = Location.all
+    erb :"locations/index"
+  end
+
   helpers do
 
     def current_user
@@ -42,7 +47,7 @@ class ApplicationController < Sinatra::Base
     def record_found?(resources)
       res = resources.map{|obj| obj.nil?}
       if res.any?(true)
-        flash[:notice] = "Please try again."
+        flash[:notice] = "Page not found! Please try again."
         redirect to "/locations"
       end
     end

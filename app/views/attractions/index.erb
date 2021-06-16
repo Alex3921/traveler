@@ -1,15 +1,18 @@
 <h1>Checkout our amazing attractions:</h1>
 
+<br>
+<% if logged_in? %>
+  <a href="/attractions/new"><input type="submit" value="Add attraction"></a>
+<% end %>
 <br><br>
 
 <ul>
-  <%@attractions.each do |attraction|%>
-    <%=attraction.img_url%>
-    <h3><a href="/attractions/<%=attraction.slug%>"><%=attraction.name%></a></h3>
-    <%if logged_in? && current_user.attractions.include?(attraction)%>
-      <a href="/attractions/<%=attraction.slug%>/edit"><input type="button" value="Edit"></a>
-    <%end%>
-    <%=attraction.description%>
+  <% @attractions.each do |attraction| %>
+    <img src="<%= attraction.img_url %>">
+    <h3><a href="/attractions/<%= attraction.slug%>"><%= attraction.name %></a></h3>
+    <% if logged_in? && current_user.attractions.include?(attraction) %>
+      <a href="/attractions/<%= attraction.slug %>/edit"><input type="button" value="Edit"></a>
+    <% end %>
     <br><br>
-  <%end%>
+  <% end %>
 </ul>

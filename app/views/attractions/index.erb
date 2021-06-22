@@ -1,18 +1,22 @@
-<h1>Checkout our amazing attractions:</h1>
-
-<br>
-<% if logged_in? %>
-  <a href="/attractions/new"><input type="submit" value="Add attraction"></a>
-<% end %>
-<br><br>
-
-<ul>
-  <% @attractions.each do |attraction| %>
-    <img src="<%= attraction.img_url %>">
-    <h3><a href="/attractions/<%= attraction.slug%>"><%= attraction.name %></a></h3>
-    <% if logged_in? && current_user.attractions.include?(attraction) %>
-      <a href="/attractions/<%= attraction.slug %>/edit"><input type="button" value="Edit"></a>
-    <% end %>
-    <br><br>
+<div style="text-align: center; margin-bottom: 100px;" class="attractions">
+  <h1>Checkout our amazing attractions:</h1>
+  
+  <br>
+  <% if logged_in? %>
+    <a href="/attractions/new"><input style="padding: 3px;" type="submit" value="Add attraction"></a>
   <% end %>
-</ul>
+  <br><br>
+  
+  <ul>
+    <% @attractions.each do |attraction| %>
+      <a href="/attractions/<%= attraction.slug %>"><img
+          src="<%= attraction.img_url %>"
+          style="width: 550px; height: 350px;"
+        /></a>
+      <br>
+  
+      <h3><%= attraction.name %>, <%= attraction.location.name %></h3>
+      <br><br>
+    <% end %>
+  </ul>
+</div>

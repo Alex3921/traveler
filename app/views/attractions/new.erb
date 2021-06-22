@@ -1,14 +1,26 @@
-<br><br>
-
-<h2><%=@current_user.username%>, here you can create a new attraction:</h2>
-
-<br><br>
-
-<form action="/attractions" method="POST">
-  <h3>Name: <input type="text" name="attraction[name]" id="attraction_name" required></h3>
-  <h3>Description: <input type="text" name="attraction[description]" id="attraction_description" required></h3>
-  <h3>Image url: <input type="text" name="attraction[img_url]" id="attraction_img_url"></h3>
+<div style="margin-bottom: 100px;" class="add-attraction">
   <br><br>
-
-  <input type="submit" value="Create">
-</form>
+  
+  <h2><%=@current_user.username%>, here you can create a new attraction:</h2>
+  
+  <br><br>
+  
+  <div class="attraction-form">
+    <form action="/attractions" method="POST">
+      <h3>Name: <input style="margin-left: 50px;" type="text" name="attraction[name]" id="attraction_name" required></h3>
+      <h3>Description: <input type="text" name="attraction[description]" id="attraction_description" required></h3>
+      <h3>Image url: <input style="margin-left: 18px;" type="text" name="attraction[img_url]" id="attraction_img_url"></h3>
+      <h3>Attraction:</h3>
+      <ul>
+        <% @locations.each do |location| %>
+          <li>
+            <input style="margin-left: 10px; margin-top: 6px;" type="radio" name="location[id]" value="<%= location.id %>" required><%= location.name %>
+          </li>
+        <% end %>
+      </ul>
+      <br><br>
+    
+      <input style="padding: 3px;" type="submit" value="Create">
+    </form>
+  </div>
+</div>

@@ -1,17 +1,22 @@
-<h3><%=current_user.username%>, here you can edit your listing:</h3>
-<br><br>
-
-<form action="/attractions/<%=@attraction.slug%>" method="POST" id="attraction_edit">
-  <input type="hidden" id="hidden" name="_method" value="PATCH">
-
-  <label>Name:</label>
-  <input type="text" name="attraction[name]" value="<%=@attraction.name%>">
-  <label>Description:</label>
-  <input type="text" name="attraction[description]" value="<%=@attraction.description%>">
-  <br><br><br>
-
-</form>
-
-<input form="attraction_edit" type="submit" value="Submit changes">
-<a href="/attractions/<%=@attraction.slug%>"><button type="button">Cancel</button></a>
+<div style="margin-bottom: 100px;">
+  <h3><%=current_user.username%>, here you can edit your listing:</h3>
+  <br><br>
+  
+  <form action="/attractions/<%=@attraction.slug%>" method="POST" id="attraction_edit">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+  
+    <label>Name:</label>
+    <input type="text" name="attraction[name]" value="<%=@attraction.name%>">
+    <br><br>
+    <label>Description:</label>
+    <textarea name="attraction[description]">
+      <%= @attraction.description %>
+    </textarea>
+    <br><br><br>
+  
+  </form>
+  
+  <input style="padding: 3px;" form="attraction_edit" type="submit" value="Submit changes">
+  <a href="/attractions/<%=@attraction.slug%>"><button style="padding: 3px;" type="button">Cancel</button></a>
+</div>
 

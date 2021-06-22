@@ -1,11 +1,14 @@
-<h4><%= @attraction.name %></h4>
-  <% if !!@attraction && @attraction.user == @current_user %>
-    <a href="/attractions/<%= @attraction.slug %>/edit"><input type="submit" value="Edit"/></a>
-    <form action="/attractions/<%= @attraction.slug %>" method="POST">
-      <input type="hidden" id="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete"/></a>
-    </form>
-  <% end %>
+<img style="width: 550px; height: 350px;display: block; margin-left: auto; margin-right: auto; width: 50%;" src=<%=@attraction.img_url%>/> 
+<h4 style="text-align: center; margin-top: 10px;"><%= @attraction.name %>, <%= @attraction.location.name %></h4>
+  <div>
+    <% if !!@attraction && @attraction.user == @current_user %>
+      <a href="/attractions/<%= @attraction.slug %>/edit"><input type="submit" value="Edit"/></a>
+      <form onsubmit="return confirm('Are you sure you want to delete this attraction?')"action="/attractions/<%= @attraction.slug %>" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete"/></a>
+      </form>
+    <% end %>
+  </div>
 <br><br>
 
 <%= @attraction.description %>
@@ -20,18 +23,21 @@
   <br><br>
 <% end %>
 
-<% @attraction.reviews.each do |review| %>
-  <b><%= review.user.username %></b>
-  <%= review.created_at.strftime("%B, %d, %Y") %>
-  <% if review.user == current_user %>
-    <a href="/reviews/<%= @attraction.slug %>/<%= review.id %>/edit"><input type="submit" value="Edit"/></a>
-    <form action="/reviews/<%= @attraction.slug %>/<%= review.id %>" method="POST">
-      <input type="hidden" id="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete">
-    </form>
+<div style="margin-bottom: 100px;">
+  <% @attraction.reviews.each do |review| %>
+    <b><%= review.user.username %></b>
+    <%= review.created_at.strftime("%B, %d, %Y") %>
+    <br>
+    <% if review.user == current_user %>
+      <a href="/reviews/<%= @attraction.slug %>/<%= review.id %>/edit"><input type="submit" value="Edit"/></a>
+      <form onsubmit="return confirm('Are you sure you want to delete this review?')"action="/reviews/<%= @attraction.slug %>/<%= review.id %>" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+      </form>
+    <% end %>
+    <br>
+  
+    <%= review.content %>
+    <br><br>
   <% end %>
-  <br>
-
-  <%= review.content %> 
-  <br><br>
-<% end %>
+</div>

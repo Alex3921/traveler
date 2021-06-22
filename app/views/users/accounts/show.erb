@@ -1,13 +1,21 @@
-<label>Username:</label>
-<%= @current_user.username %>
-<br>
+<div style="margin-bottom: 100px;" class="user-profile">
+  <h3>This is your profile</h3>
 
-<label>E-mail:</label>
-<%= @current_user.email %>
-<br><br>
-
-<a href="/accounts/<%=@current_user.slug%>/edit"><input type="submit" value="Edit"/></a>
-<form onsubmit="return confirm('Are you sure you want to delete your account?')" action="/accounts/<%=@current_user.slug%>" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete"/>
-</form>
+  <div id="credentials">
+    <label>Username:</label>
+      <%= @current_user.username %>
+    <br>
+    
+    <label>E-mail:</label>
+      <%= @current_user.email %>
+    <br><br>
+  </div>
+  
+  <div id="user-buttons">
+    <a href="/accounts/<%=@current_user.slug%>/edit"><button id="edit-button">Edit</button></a>
+    <form onsubmit="return confirm('Are you sure you want to delete your account?')" action="/accounts/<%=@current_user.slug%>" method="POST">
+      <input type="hidden" id="hidden" name="_method" value="DELETE">
+      <button id="delete-button" type="submit">Delete</button>
+    </form>
+  </div>
+</div>

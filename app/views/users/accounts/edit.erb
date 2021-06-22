@@ -1,17 +1,27 @@
-<h2>Here you can edit your profile:</h2>
-<br><br>
-
-<form action="/accounts/<%=@current_user.slug%>" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="PATCH">
-  <label>Username:</label>
-  <input type="text" name="user[username]" placeholder="<%=@current_user.username%>">
-  <label>E-mail:</label>
-  <input type="text" name="user[email]" placeholder="<%=@current_user.email%>">
-  <label>New Password:</label>
-  <input type="password" name="user[password]">
+<div class="user-edit">
+  <h3>Edit your profile:</h3>
   
-  <br><br>
-
-  <input type="submit" value="Submit changes">
-</form>
+  <form action="/accounts/<%=@current_user.slug%>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+    <ul>
+      <li>
+        <label>Username:</label>
+        <input type="text" name="user[username]" placeholder="<%=@current_user.username%>">
+      </li>
+      <li>
+        <label>E-mail:</label>
+        <input type="text" name="user[email]" placeholder="<%=@current_user.email%>">
+      </li>
+      <li>
+        <label>New Password:</label>
+        <input type="password" name="user[password]">
+      </li>
+    </ul>
+  
+    <br><br>
+  
+    <button type="submit">Submit changes</button>
+    <a href="/accounts/<%=@current_user.slug%>"><button type="button">Cancel</button></a>
+  </form>
+</div>
 

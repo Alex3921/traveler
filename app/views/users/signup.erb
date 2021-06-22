@@ -1,15 +1,24 @@
-<h2>Please fill the form:</h2>
-<br><br>
-
-<form action="/signup" method="POST">
-  <label for="username">Username:</label>
-  <input type="text" id="username"name="user[username]" required>
-  <label for="email">E-mail:</label>
-  <input type="text" id="email" name="user[email]" required>
-  <label for="password">Password:</label>
-  <input type="password" id="password"name="user[password]" required>
+<div style="margin-bottom: 100px;" class="signup">
+  <h3>Please fill the form:</h3>
   
-  <br><br>
-
-  <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+  <form class="signup-form" action="/signup" method="POST">
+    <ul>
+      <li>
+        <label for="username">Username:</label>
+        <input type="text" id="username"name="user[username]" required>
+      </li>
+      <li>
+        <label for="email">E-mail:</label>
+        <input type="text" id="email" name="user[email]" required>
+      </li>
+      <li>
+        <label for="password">Password:</label>
+        <input type="password" id="password"name="user[password]" required>
+      </li>
+    </ul>
+  
+    <br>
+  
+    <input style="padding: 3px;" type="submit" value="Create">
+  </form>
+</div>

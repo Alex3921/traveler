@@ -1,13 +1,23 @@
-<h2>Please fill the form to log in:</h2>
-<br><br>
-
-<form action="/login" method="POST">
-  <label for="username">Username:</label>
-  <input type="text" id="username"name="user[username]" required>
-  <label for="password">Password:</label>
-  <input type="password" id="password"name="user[password]" required>
+<div style="margin-bottom: 100px;" class="login">
+  <h3>Please sign in:</h3>
   
-  <br><br>
+  <form class="login-form" action="/login" method="POST">
+    <ul>
+      <li>
+        <label for="username">Username:</label>
+        <input type="text" id="username"name="user[username]" required>
+      </li>
+      <li>
+        <label for="password">Password:</label>
+        <input type="password" id="password"name="user[password]" required>
+      </li>
+    </ul>
 
-  <input class="btn btn-primary" type="submit" value="Log in">
-</form>
+    <br>
+  
+    <input style="padding: 3px;" type="submit" value="Log in">
+  </form>
+  <br><br>
+  
+  <p>Not a member? <a href="/signup">Join</a></p>
+</div>

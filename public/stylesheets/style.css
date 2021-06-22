@@ -1,0 +1,110 @@
+.mynav {
+  list-style-type: none;
+  margin: 0;
+  padding-bottom: 20px;
+  overflow: hidden;
+  background-color: white;
+  top: 0;
+  width: auto;
+}
+
+.mynav li {
+  float: left;
+}
+
+.mynav li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 7px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.mynav li a:hover {
+  background-color: inherit;
+  font-size: xx-large;
+  font-stretch: expanded;
+}
+
+.mynav .active {
+  background-color: lightcoral;
+}
+
+.content {
+  padding-top: 50px;
+}
+
+.login, .signup, .user-edit, .user-profile {
+  padding-top: 25px;
+  width: 60%;
+}
+
+.login h3, .signup h3, .user-edit h3, .user-profile h3 {
+  border-bottom: 2px solid #ccc;
+  line-height: 36px;
+  margin-bottom: 16px;
+  width: 40%;
+}
+
+.login-form, .signup-form, .user-edit form {
+  padding-top: 20px;
+  position: relative;
+  width: 50%;
+}
+
+.login-form li, .signup-form li, .user-edit li {
+  padding-top: 5px;
+}
+
+.login-form input, .signup-form input, .user-edit input {
+  position: absolute;
+  text-align: center;
+  right: 0;
+  padding-right: 3px;
+}
+
+.user-edit button {
+  padding: 3px;
+}
+
+.login p a {
+  text-decoration: none;
+}
+
+.login p a:hover {
+  font-size: large;
+  font-stretch: expanded;
+}
+
+.user-profile {
+  position: relative;
+  display: grid;
+}
+
+.user-profile #user-buttons {
+  display: inline-block;
+  position: relative;
+}
+
+.user-profile #user-buttons button {
+  float: left;
+  padding: 3px;
+  margin-top: 15px;
+}
+
+.user-profile #user-buttons #delete-button {
+  margin-left: 7px;
+}
+
+.user-profile #credentials label {
+  padding-right: 20px;
+}
+
+.wrapper div.locations {
+  text-align: center;
+}
+
+
+

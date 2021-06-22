@@ -19,12 +19,14 @@ class ApplicationController < Sinatra::Base
   # end
 
   get "/" do
-    erb :index
+    if !logged_in?
+      redirect to '/login'
+    end
+    redirect to '/locations/index'
   end
 
-  get "/visitor" do
-    @locations = Location.all
-    erb :"locations/index"
+  get "/about" do
+    erb :about
   end
 
   helpers do
@@ -53,7 +55,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def has_img?(object)
-      if object.img_url.nil?
+      if object.img_url.empty?
         data = API.get_data(object.slug)["results"].sample
         photo = Photo.new(data)
         object.img_url = photo.full

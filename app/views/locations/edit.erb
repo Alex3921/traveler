@@ -1,16 +1,21 @@
-<h3><%=current_user.username%>, here you can edit your listing:</h3>
-<br><br>
-
-<form action="/locations/<%=@location.slug%>" method="POST" id="location_edit">
-  <input type="hidden" id="hidden" name="_method" value="PATCH">
-
-  <label>Name:</label>
-  <input type="text" name="location[name]" value="<%=@location.name%>">
-  <label>Description:</label>
-  <input type="text" name="location[description]" value="<%=@location.description%>">
-  <br><br><br>
-
-</form>
-
-<input form="location_edit" type="submit" value="Submit changes">
-<a href="/locations/<%=@location.slug%>"><button type="button">Cancel</button></a>
+<div style="margin-bottom: 100px;">
+  <h3><%=current_user.username%>, here you can edit your listing:</h3>
+  <br><br>
+  
+  <form action="/locations/<%=@location.slug%>" method="POST" id="location_edit">
+    <input type="hidden" id="hidden" name="_method" value="PATCH">
+  
+    <label>Name:</label>
+    <input type="text" name="location[name]" value="<%=@location.name%>">
+    <br>
+    <label>Description:</label>
+    <textarea style="margin-top: 5px;" name="location[description]">
+      <%= @location.description %>
+    </textarea>
+    <br><br><br>
+  
+  </form>
+  
+  <input style="padding: 3px;"form="location_edit" type="submit" value="Submit changes">
+  <a href="/locations/<%=@location.slug%>"><button style="padding: 3px;" type="button">Cancel</button></a>
+</div>

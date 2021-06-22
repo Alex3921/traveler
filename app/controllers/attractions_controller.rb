@@ -7,6 +7,7 @@ class AttractionsController < ApplicationController
 
   get '/attractions/new' do
     redirect_login
+    @locations = Location.all
     @current_user = User.find_by(id: session[:user_id])
     erb :'attractions/new'     
   end
@@ -17,10 +18,12 @@ class AttractionsController < ApplicationController
       flash[:notice] = "That name is taken. Please choose another one!"
       redirect to "/attractions/new"
     end
-    
+
+    @location = Location.find(params[:location][:id])
     @attraction = Attraction.create(params[:attraction])
     has_img?(@attraction)
     current_user.attractions << @attraction
+    @attraction.location = @location
     flash[:notice] = "Attraction created successfully!"
     redirect to "/attractions/#{Attraction.last.slug}"
   end
@@ -50,6 +53,7 @@ class AttractionsController < ApplicationController
 
   patch '/attractions/:slug' do
     redirect_login
+    params[:attraction][:description].strip
     @attraction = Attraction.find_by_slug(params[:slug])
     if !@attraction && @attraction.user == current_user
       flash[:notice] = "Sorry, but you don't have permission to edit an attraction you didn't create."

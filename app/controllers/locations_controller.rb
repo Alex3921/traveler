@@ -48,7 +48,8 @@ class LocationsController < ApplicationController
     redirect_login
     @location = Location.find_by_slug(params[:slug])
     current_user_has_location?(@location)
-
+    params[:location][:description].strip
+    
     if @location.update(params[:location]) != true
       flash[:notice] = "The name is already taken. Please choose another one."
       redirect to "/locations/#{@location.slug}/edit"

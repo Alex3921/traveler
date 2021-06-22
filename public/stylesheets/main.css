@@ -1,5 +1,5 @@
 @media screen {
-  /* --- Reset Styles --- */
+
   * {
     list-style: none;
     margin: 0;
@@ -11,7 +11,6 @@
     width: 100%;
   }
 
-  /* --- Welcome Page Styles --- */
   body {
     background-color: lightblue;
     color: #333;
@@ -27,7 +26,9 @@
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
-    width: 85%;
+    width: auto;
+    position: relative;
+    overflow: hidden;
   }
 
   h1 {
@@ -76,11 +77,6 @@
     clear: both;
   }
 
-  footer.branding {
-    border-top: 2px solid #ccc;
-    margin-top: 20px;
-    padding-top: 20px;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -112,18 +108,5 @@
     font-size: 18px;
     line-height: 24px;
   }
-
-  .btn {
-    border: none;
-    outline: none;
-    padding: 10px 16px;
-    background-color: #f1f1f1;
-    cursor: pointer;
-  }
-  
-  .active, .btn:hover {
-    background-color: #666;
-    color: white;
-  }
-  
+   
 }

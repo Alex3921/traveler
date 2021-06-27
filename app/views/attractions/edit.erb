@@ -5,13 +5,19 @@
   <form action="/attractions/<%=@attraction.slug%>" method="POST" id="attraction_edit">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
   
-    <label>Name:</label>
-    <input type="text" name="attraction[name]" value="<%=@attraction.name%>">
-    <br><br>
-    <label>Description:</label>
-    <textarea name="attraction[description]">
-      <%= @attraction.description %>
-    </textarea>
+    <p>
+      <label>Name:</label>
+      <input style="margin-left: 38px" type="text" name="attraction[name]" value="<%= @attraction.name %>">
+    </p>
+    <p>
+      <label>Image:</label>
+      <input style="margin-left: 35px" type="text" name="attraction[img_url]" value="<%= @attraction.img_url %>">  
+    </p>
+      <label>Description:</label>
+      <textarea name="attraction[description]">
+        <%= @attraction.description %>
+      </textarea>
+    </p>
     <br><br><br>
   
   </form>

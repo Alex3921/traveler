@@ -21,9 +21,11 @@ class AttractionsController < ApplicationController
 
     @location = Location.find(params[:location][:id])
     @attraction = Attraction.create(params[:attraction])
-    has_img?(@attraction)
     current_user.attractions << @attraction
     @attraction.location = @location
+    @attraction.save
+    has_img?(@attraction)
+
     flash[:notice] = "Attraction created successfully!"
     redirect to "/attractions/#{Attraction.last.slug}"
   end
@@ -65,6 +67,7 @@ class AttractionsController < ApplicationController
       redirect to '/attractions/new'
     end
 
+    has_img?(@attraction)
     erb :'attractions/show'
   end
 
@@ -76,7 +79,7 @@ class AttractionsController < ApplicationController
       redirect to '/attractions'
     end
     
-    @attraction.delete
+    @attraction.destroy
     flash[:notice] ="Attraction deleted successfully!"
     redirect to '/attractions'
   end

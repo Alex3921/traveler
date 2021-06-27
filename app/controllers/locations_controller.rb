@@ -55,6 +55,7 @@ class LocationsController < ApplicationController
       redirect to "/locations/#{@location.slug}/edit"
     end
 
+    has_img?(@location)
     erb :'locations/show'
   end
 

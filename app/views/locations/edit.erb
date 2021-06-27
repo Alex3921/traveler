@@ -5,13 +5,20 @@
   <form action="/locations/<%=@location.slug%>" method="POST" id="location_edit">
     <input type="hidden" id="hidden" name="_method" value="PATCH">
   
-    <label>Name:</label>
-    <input type="text" name="location[name]" value="<%=@location.name%>">
-    <br>
-    <label>Description:</label>
-    <textarea style="margin-top: 5px;" name="location[description]">
-      <%= @location.description %>
-    </textarea>
+    <p>
+      <label>Name:</label>
+      <input style="margin-left: 37px" type="text" name="location[name]" value="<%=@location.name%>">
+    </p>
+    <p>
+      <label>Image:</label>
+      <input style="margin-left: 35px" type="text" name="location[img_url]" value="<%= @location.img_url %>">
+    </p>
+    <p>
+      <label>Description:</label>
+      <textarea style="margin-top: 5px;" name="location[description]">
+        <%= @location.description %>
+      </textarea>
+    </p>
     <br><br><br>
   
   </form>

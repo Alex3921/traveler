@@ -15,6 +15,7 @@ gem 'rack-flash3'
 gem 'dotenv'
 gem 'json'
 gem 'rest-client'
+gem 'sinatra-contrib'
 
 group :test do
   gem 'rspec'

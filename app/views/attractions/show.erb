@@ -1,3 +1,5 @@
+<% content_for :title, "- #{@attraction.name}" %>
+
 <img style="width: 550px; height: 350px;display: block; margin-left: auto; margin-right: auto; width: 50%;" src=<%=@attraction.img_url%>/> 
 <h4 style="text-align: center; margin-top: 10px;"><%= @attraction.name %>, <%= @attraction.location.name %></h4>
   <div>
